@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{
+        box-sizing: border-box;
+    }
+</style>
+  <div class="jumbotron jumbotron-fluid text-center" style="margin-bottom: 100px; margin-top: 100px;">
+    <div class="container">
+      <h1 class="display-4">Task Manager App</h1>
+      <p class="lead">Manage your tasks efficiently with our app.</p>
+      <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button" style="background-color: orangered; color:white;">Get Started</a>
+    </div>
+  </div>
+  
+  <div class="container" style="margin-bottom: 100px;">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Easy to Use</h2>
+        <p>Our app is designed to be user-friendly, making task management a breeze.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Organize Tasks</h2>
+        <p>Organize your tasks into categories and prioritize them for better productivity.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Stay Updated</h2>
+        <p>Receive notifications and updates about your tasks to stay on track.</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+{% endblock %}
