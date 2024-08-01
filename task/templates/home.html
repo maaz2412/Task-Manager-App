@@ -7,6 +7,13 @@
 </div>
 {% endfor %}
 {% endif %}
+<br>
+{% if task_name %}
+<div style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; max-width: 400px; margin: 20px auto;">
+  <p style="font-size: 16px; color: #4CAF50; font-weight: bold;">Recently added task: <span style="color: #333;">{{ task_name }}</span></p>
+</div>
+{% endif %}
+<br>
 <div class="row mb-4" style="margin-top: 100px;"> 
    <h2 style="color: orangered; font-weight: bolder; text-align: center;">Start listing your tasks.</h2>
     <div class="col-md-8 offset-md-2" style="padding-bottom: 20px;">
@@ -26,10 +33,10 @@
               <textarea class="form-control" id="taskDescription"  rows="3" name="task-description" placeholder="Enter task description"></textarea>
             </div>
             <div class="form-group" style="margin-top: 30px;">
-              <label for="taskName" style="margin-bottom: 10px;">Select Task Category</label>
               <select id="category" name="category">
-                <option value="Personal">Personal</option>
-                <option value="Work">Work</option>
+                {% for category_id, category_name in categories %}
+                <option value="{{ category_id }}">{{ category_name }}</option>
+                {% endfor %}
             </select>
             </div>
             <button type="submit" style="margin-left: 40%;  background-color: white; border-radius: 8px; color: orangered; border: 1px solid orangered; margin-top: 20px;">Add Task</button>

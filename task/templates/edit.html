@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mb-4" style="margin-top: 100px;"> 
+    <h2 style="color: orangered; font-weight: bolder; text-align: center;">Edit your tasks.</h2>
+     <div class="col-md-8 offset-md-2" style="padding-bottom: 20px;">
+       <div class="card">
+         <div class="card-header">
+           Edit Task
+         </div>
+         <div class="card-body" style="padding-bottom: 20px;">
+           <form method="post">
+             {% csrf_token %}
+             <div class="form-group">
+               <label for="taskName" style="margin-bottom: 10px;">Task Name</label>
+               <input type="text" class="form-control" id="taskName" name="task-name" placeholder="Enter task name">
+             </div>
+             <div class="form-group">
+               <label for="taskDescription" style="margin-bottom: 10px;">Task Description</label>
+               <textarea class="form-control" id="taskDescription"  rows="3" name="task-description" placeholder="Enter task description"></textarea>
+             </div>
+             <div class="form-group" style="margin-top: 30px;">
+               <select id="category" name="category">
+                 {% for category_id, category_name in categories %}
+                 <option value="{{ category_id }}">{{ category_name }}</option>
+                 {% endfor %}
+             </select>
+             </div>
+             <button type="submit" style="margin-left: 40%;  background-color: white; border-radius: 8px; color: orangered; border: 1px solid orangered; margin-top: 20px;">Add Task</button>
+           </form>
+         </div>
+       </div>
+{% endblock %}
